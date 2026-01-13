@@ -313,7 +313,21 @@ dotnet run
 
 ## 📄 License
 
-This project is provided as a demonstration of Acumatica API integration for inventory management. See LICENSE file for details.
+This project is licensed under the **MIT License** - a permissive open source license.
+
+You are free to:
+- ✅ Use commercially
+- ✅ Modify
+- ✅ Distribute
+- ✅ Use privately
+- ✅ Sublicense
+
+See the [LICENSE](LICENSE) file for full details.
+
+```
+MIT License
+Copyright (c) 2024-2026 AcuPower LTD (https://acupowererp.com)
+```
 
 ---
 
