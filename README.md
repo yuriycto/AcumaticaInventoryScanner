@@ -187,6 +187,121 @@ Access settings anytime via the **Settings** tab:
 
 ---
 
+## 🏷️ Barcode Generator Utility
+
+This repository includes a **Windows desktop application** for generating test barcodes. Located in the `BarcodeGenerator/` folder.
+
+### Features
+
+- Generate multiple barcode formats
+- Batch generation (semicolon-separated codes)
+- Customizable dimensions
+- Export to PNG, JPEG, BMP, or PDF
+- Real-time preview
+
+### Supported Barcode Formats
+
+| Format | Characters | Length Requirements | Best For |
+|--------|------------|---------------------|----------|
+| **Code 128** | Alphanumeric + special | Any length | ✅ Inventory IDs (recommended) |
+| **QR Code** | Any text, URLs | Any length | URLs, long text |
+| **Data Matrix** | Any text | Any length | Small items, high density |
+| **PDF417** | Any text | Any length | Documents, IDs |
+| **EAN-13** | Digits only | 12-13 digits | Retail products (worldwide) |
+| **EAN-8** | Digits only | 7-8 digits | Small retail products |
+| **UPC-A** | Digits only | 11-12 digits | Retail products (US/Canada) |
+| **UPC-E** | Digits only | 7-8 digits | Small packages (US) |
+| **ITF** | Digits only | Even number of digits | Shipping cartons |
+| **Codabar** | 0-9, A-D, -, $, :, /, ., + | Any length | Libraries, blood banks |
+
+### Barcode Format Rules
+
+#### Alphanumeric Formats (Flexible)
+
+**Code 128** - Most versatile, recommended for Acumatica Inventory IDs
+```
+✅ AALEGO500
+✅ ITEM-001-A
+✅ Any alphanumeric string
+```
+
+**QR Code / Data Matrix / PDF417** - Can encode any text
+```
+✅ https://acupowererp.com
+✅ Long product descriptions
+✅ Special characters: @#$%^&*
+```
+
+#### Numeric-Only Formats (Strict Rules)
+
+**EAN-13** (European Article Number)
+```
+✅ 5901234123457  (13 digits)
+✅ 590123412345   (12 digits - checksum auto-added)
+❌ AALEGO500      (letters not allowed)
+❌ 12345          (too short)
+```
+
+**EAN-8** (Short EAN)
+```
+✅ 96385074  (8 digits)
+✅ 9638507   (7 digits - checksum auto-added)
+❌ 123456789 (too long)
+```
+
+**UPC-A** (Universal Product Code - North America)
+```
+✅ 012345678905  (12 digits)
+✅ 01234567890   (11 digits - checksum auto-added)
+❌ 1234567890    (too short)
+```
+
+**UPC-E** (Compressed UPC)
+```
+✅ 01234565  (8 digits)
+✅ 0123456   (7 digits - checksum auto-added)
+❌ 012345678 (too long)
+```
+
+**ITF** (Interleaved 2 of 5)
+```
+✅ 1234567890  (10 digits - even count)
+✅ 12345678    (8 digits - even count)
+❌ 123456789   (9 digits - odd count not allowed)
+```
+
+### Usage
+
+1. **Run the application**: Open `BarcodeGenerator.exe` or build from source
+2. **Enter code(s)**: Type inventory IDs (use `;` for multiple)
+   ```
+   AALEGO500; WIDGET001; PART-123
+   ```
+3. **Select format**: Choose barcode type from dropdown
+4. **Set dimensions**: Adjust width/height (default: 300×150)
+5. **Generate**: Click "Generate Barcode"
+6. **Save**: Export as image (PNG/JPEG/BMP) or PDF
+
+### Integration with Mobile Scanner
+
+Use the Barcode Generator to:
+1. Create barcodes with your Acumatica Inventory IDs
+2. Print them or display on screen
+3. Scan with the mobile app to test the integration
+4. Verify API connectivity and item lookup
+
+### Building from Source
+
+```bash
+cd BarcodeGenerator
+dotnet build
+dotnet run
+```
+
+**Requirements:** .NET 8.0, Windows
+
+---
+
 ## 📞 Support
 
 **Created by AcuPower LTD**
