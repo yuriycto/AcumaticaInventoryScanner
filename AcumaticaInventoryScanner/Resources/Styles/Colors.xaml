@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- AcuPower Industrial Theme - Warehouse/Inventory Scanner -->
+    
+    <!-- Primary Brand Colors - Deep Teal/Cyan Industrial -->
+    <Color x:Key="Primary">#00838F</Color>
+    <Color x:Key="PrimaryDark">#4DD0E1</Color>
+    <Color x:Key="PrimaryDarkText">#FFFFFF</Color>
+    <Color x:Key="PrimaryLight">#B2EBF2</Color>
+    
+    <!-- Secondary - Warm Orange for Actions/Warnings -->
+    <Color x:Key="Secondary">#FF6F00</Color>
+    <Color x:Key="SecondaryDarkText">#FFB74D</Color>
+    <Color x:Key="SecondaryLight">#FFE0B2</Color>
+    
+    <!-- Tertiary - Industrial Steel Blue -->
+    <Color x:Key="Tertiary">#37474F</Color>
+    
+    <!-- Accent Colors -->
+    <Color x:Key="AccentGreen">#43A047</Color>
+    <Color x:Key="AccentRed">#E53935</Color>
+    <Color x:Key="AccentYellow">#FDD835</Color>
+    <Color x:Key="ScannerGreen">#00E676</Color>
+    
+    <!-- Background Colors -->
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="OffBlack">#121212</Color>
+    <Color x:Key="DarkBackground">#1E272E</Color>
+    <Color x:Key="CardBackground">#263238</Color>
+    <Color x:Key="LightBackground">#ECEFF1</Color>
+    
+    <!-- Deprecated but kept for compatibility -->
+    <Color x:Key="Magenta">#D600AA</Color>
+    <Color x:Key="MidnightBlue">#00838F</Color>
+    
+    <!-- Gray Scale -->
+    <Color x:Key="Gray100">#F5F5F5</Color>
+    <Color x:Key="Gray200">#EEEEEE</Color>
+    <Color x:Key="Gray300">#E0E0E0</Color>
+    <Color x:Key="Gray400">#BDBDBD</Color>
+    <Color x:Key="Gray500">#9E9E9E</Color>
+    <Color x:Key="Gray600">#757575</Color>
+    <Color x:Key="Gray700">#616161</Color>
+    <Color x:Key="Gray800">#424242</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="AccentGreenBrush" Color="{StaticResource AccentGreen}"/>
+    <SolidColorBrush x:Key="AccentRedBrush" Color="{StaticResource AccentRed}"/>
+
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+</ResourceDictionary>

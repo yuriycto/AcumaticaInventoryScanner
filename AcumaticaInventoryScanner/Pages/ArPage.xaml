@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="AcuPower.AcumaticaInventoryScanner.Pages.ArPage"
+             Title="AR Mode">
+    <Grid>
+        <!-- Reusing scanner view for camera feed as basic AR backdrop -->
+        <zxing:CameraBarcodeReaderView x:Name="ArCameraView" IsDetecting="True" BarcodesDetected="ArCameraView_BarcodesDetected"/>
+        
+        <!-- AR Overlay -->
+        <AbsoluteLayout x:Name="OverlayLayer" InputTransparent="True">
+             <!-- Dynamic content will be added here -->
+             <Label Text="Point at an item..." TextColor="White" BackgroundColor="#80000000" Padding="10"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.1, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+        
+        <Label x:Name="StatusLabel" Text="Initializing AR..." VerticalOptions="End" 
+               TextColor="Yellow" BackgroundColor="Black" Padding="10"/>
+    </Grid>
+</ContentPage>

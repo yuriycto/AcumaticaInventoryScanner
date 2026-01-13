@@ -1,0 +1,79 @@
+# .NET build output
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.csproj.user
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Android
+*.apk
+*.aab
+*.idsig
+*.keystore
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# MAUI
+*.mauiversion
+
+# Sensitive files
+*.pfx
+*.p12
+appsettings.Development.json
+TestCredentials.txt
+
+# Cursor/IDE
+.cursor/
+
+# Python (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/

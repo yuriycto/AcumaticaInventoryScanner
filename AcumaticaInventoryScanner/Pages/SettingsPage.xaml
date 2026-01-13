@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcuPower.AcumaticaInventoryScanner.Pages.SettingsPage"
+             Title="Settings"
+             BackgroundColor="#1E272E">
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="0">
+            
+            <!-- Header with gradient effect -->
+            <Grid HeightRequest="120" Padding="20">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00838F" Offset="0.0"/>
+                        <GradientStop Color="#006064" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Label Text="⚙️" FontSize="32"/>
+                    <Label Text="Settings" FontSize="28" TextColor="White" FontAttributes="Bold"/>
+                    <Label Text="Configure your Acumatica connection" FontSize="14" TextColor="#B2EBF2"/>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <VerticalStackLayout Padding="20" Spacing="20">
+                
+                <!-- Connection Settings Card -->
+                <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="16" Padding="20" HasShadow="False">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="🔗" FontSize="20"/>
+                            <Label Text="Connection Settings" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+                        
+                        <BoxView HeightRequest="1" Color="#37474F"/>
+                        
+                        <Label Text="Instance URL" FontSize="12" TextColor="#4DD0E1"/>
+                        <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="UrlEntry" Placeholder="https://your-instance.acumatica.com/EntityName" 
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0"/>
+                        </Frame>
+                        
+                        <Label Text="Tenant (optional)" FontSize="12" TextColor="#4DD0E1"/>
+                        <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="TenantEntry" Placeholder="Leave empty for default tenant" 
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0"/>
+                        </Frame>
+                        
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="Username" FontSize="12" TextColor="#4DD0E1"/>
+                                <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                                    <Entry x:Name="UsernameEntry" Placeholder="admin" 
+                                           PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                           HeightRequest="50" Margin="15,0"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="Password" FontSize="12" TextColor="#4DD0E1"/>
+                                <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                                    <Entry x:Name="PasswordEntry" Placeholder="••••••" IsPassword="True"
+                                           PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                           HeightRequest="50" Margin="15,0"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                        </Grid>
+                        
+                        <Label Text="API Version" FontSize="12" TextColor="#4DD0E1"/>
+                        <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Picker x:Name="ApiVersionPicker" Title="Select API Version" TitleColor="#757575"
+                                    TextColor="White" BackgroundColor="Transparent" HeightRequest="50">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>24.200.001</x:String>
+                                        <x:String>23.200.001</x:String>
+                                        <x:String>22.200.001</x:String>
+                                        <x:String>21.200.001</x:String>
+                                        <x:String>20.200.001</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- OAuth Settings Card -->
+                <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="16" Padding="20" HasShadow="False">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="🔐" FontSize="20"/>
+                            <Label Text="OAuth Credentials" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+                        
+                        <Frame BackgroundColor="#FF6F00" BorderColor="Transparent" CornerRadius="8" Padding="12" HasShadow="False">
+                            <Label Text="⚠️ Required for API access. Create in Acumatica: System → Integration → Connected Applications" 
+                                   FontSize="12" TextColor="White" LineBreakMode="WordWrap"/>
+                        </Frame>
+                        
+                        <BoxView HeightRequest="1" Color="#37474F"/>
+                        
+                        <Label Text="Client ID" FontSize="12" TextColor="#4DD0E1"/>
+                        <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="ClientIdEntry" Placeholder="GUID@Company" 
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0"/>
+                        </Frame>
+                        
+                        <Label Text="Client Secret" FontSize="12" TextColor="#4DD0E1"/>
+                        <Frame BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="ClientSecretEntry" Placeholder="Your client secret" IsPassword="True"
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- App Preferences Card -->
+                <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="16" Padding="20" HasShadow="False">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="📱" FontSize="20"/>
+                            <Label Text="App Preferences" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+                        
+                        <BoxView HeightRequest="1" Color="#37474F"/>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Play sound on scan" TextColor="White" VerticalOptions="Center"/>
+                            <Switch x:Name="SoundSwitch" Grid.Column="1" OnColor="#00838F" ThumbColor="White"/>
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Vibrate on scan" TextColor="White" VerticalOptions="Center"/>
+                            <Switch x:Name="VibrateSwitch" Grid.Column="1" OnColor="#00838F" ThumbColor="White"/>
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Auto-search after scan" TextColor="White" VerticalOptions="Center"/>
+                            <Switch x:Name="AutoSearchSwitch" Grid.Column="1" OnColor="#00838F" ThumbColor="White"/>
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Remember credentials" TextColor="White" VerticalOptions="Center"/>
+                            <Switch x:Name="RememberSwitch" Grid.Column="1" OnColor="#00838F" ThumbColor="White"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- Action Buttons -->
+                <VerticalStackLayout Spacing="12">
+                    <Button x:Name="SaveButton" Text="💾  Save Settings" Clicked="OnSaveClicked"
+                            BackgroundColor="#00838F" TextColor="White" FontAttributes="Bold"
+                            HeightRequest="55" CornerRadius="12"/>
+                    
+                    <Button x:Name="TestButton" Text="🔌  Test Connection" Clicked="OnTestConnectionClicked"
+                            BackgroundColor="#37474F" TextColor="White" FontAttributes="Bold"
+                            HeightRequest="55" CornerRadius="12"/>
+                    
+                    <Button x:Name="ResetButton" Text="🗑️  Reset All Settings" Clicked="OnResetClicked"
+                            BackgroundColor="#E53935" TextColor="White" FontAttributes="Bold"
+                            HeightRequest="55" CornerRadius="12"/>
+                </VerticalStackLayout>
+                
+                <!-- Status Message -->
+                <Frame x:Name="StatusFrame" BackgroundColor="#37474F" BorderColor="Transparent" CornerRadius="8" Padding="15" HasShadow="False" IsVisible="False">
+                    <Label x:Name="StatusLabel" TextColor="White" HorizontalOptions="Center"/>
+                </Frame>
+                
+                <!-- Version Info -->
+                <VerticalStackLayout Spacing="5" Margin="0,20,0,0">
+                    <Label Text="AcuPower Inventory Scanner" FontSize="12" TextColor="#757575" HorizontalOptions="Center"/>
+                    <Label Text="Version 1.0.0 | © 2024 AcuPower LTD" FontSize="10" TextColor="#616161" HorizontalOptions="Center"/>
+                    <Label Text="acupowererp.com" FontSize="10" TextColor="#4DD0E1" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                
+                <BoxView HeightRequest="40"/>
+                
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

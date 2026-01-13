@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="AcuPower.AcumaticaInventoryScanner.MainPage"
+             Title="Scanner">
+
+    <Grid x:Name="MainGrid"
+          HorizontalOptions="Fill"
+          VerticalOptions="Fill"
+          BackgroundColor="Black">
+        <!-- Camera view will be added programmatically after page is ready -->
+        
+        <!-- Dark Overlay with transparent scanning area -->
+        <!-- This will be created programmatically in code-behind for precise positioning -->
+        <AbsoluteLayout x:Name="OverlayLayout" 
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        ZIndex="1000"/>
+        
+        <!-- Scanning Rectangle Overlay with corner indicators -->
+        <Grid x:Name="ScanningRectangle" 
+              HorizontalOptions="Center" 
+              VerticalOptions="Center"
+              WidthRequest="400"
+              HeightRequest="150">
+            <!-- Border frame -->
+            <Border Stroke="White" 
+                    StrokeThickness="3"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill"
+                    BackgroundColor="Transparent">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+            </Border>
+            
+            <!-- Corner indicators for better visibility -->
+            <!-- Top-left corner -->
+            <BoxView Color="White" WidthRequest="30" HeightRequest="4" 
+                     HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,0"/>
+            <BoxView Color="White" WidthRequest="4" HeightRequest="30" 
+                     HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,0"/>
+            
+            <!-- Top-right corner -->
+            <BoxView Color="White" WidthRequest="30" HeightRequest="4" 
+                     HorizontalOptions="End" VerticalOptions="Start" Margin="0,0,0,0"/>
+            <BoxView Color="White" WidthRequest="4" HeightRequest="30" 
+                     HorizontalOptions="End" VerticalOptions="Start" Margin="0,0,0,0"/>
+            
+            <!-- Bottom-left corner -->
+            <BoxView Color="White" WidthRequest="30" HeightRequest="4" 
+                     HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,0"/>
+            <BoxView Color="White" WidthRequest="4" HeightRequest="30" 
+                     HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,0"/>
+            
+            <!-- Bottom-right corner -->
+            <BoxView Color="White" WidthRequest="30" HeightRequest="4" 
+                     HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,0"/>
+            <BoxView Color="White" WidthRequest="4" HeightRequest="30" 
+                     HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,0"/>
+        </Grid>
+        
+        <!-- Instruction label -->
+        <Label Text="Position barcode within the frame" 
+               TextColor="White" 
+               FontSize="16"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,200,0,0"
+               BackgroundColor="#80000000"
+               Padding="10,5"/>
+        
+        <VerticalStackLayout VerticalOptions="End" Padding="20" Spacing="10">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0" Text="📝 Manual Entry" Clicked="OnManualEntryClicked" 
+                        BackgroundColor="#37474F" TextColor="White" CornerRadius="12"/>
+                <Button Grid.Column="1" Text="⚙️ Settings" Clicked="OnSettingsClicked" 
+                        BackgroundColor="#00838F" TextColor="White" CornerRadius="12"/>
+            </Grid>
+            <Button Text="🔐 Logout" Clicked="OnLogoutClicked" 
+                    BackgroundColor="#E53935" TextColor="White" CornerRadius="12"/>
+        </VerticalStackLayout>
+        
+        <ActivityIndicator x:Name="LoadingSpinner" IsRunning="False" IsVisible="False" 
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+    </Grid>
+</ContentPage>

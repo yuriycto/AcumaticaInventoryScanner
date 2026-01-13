@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AcuPower.AcumaticaInventoryScanner.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AcuPower.AcumaticaInventoryScanner"
+    xmlns:pages="clr-namespace:AcuPower.AcumaticaInventoryScanner.Pages"
+    Title="Inventory Scanner"
+    Shell.BackgroundColor="#00838F"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White"
+    Shell.NavBarHasShadow="False"
+    FlyoutBehavior="Disabled">
+
+    <!-- Main content - will be replaced when MainPage loads dynamically -->
+    <ShellContent
+        Title="Scanner"
+        Route="LoadingPage">
+        <ContentPage BackgroundColor="#1E272E">
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+                <ActivityIndicator IsRunning="True" Color="#4DD0E1" HeightRequest="50" WidthRequest="50"/>
+                <Label Text="Loading..." 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontSize="18"
+                       TextColor="White"/>
+            </VerticalStackLayout>
+        </ContentPage>
+    </ShellContent>
+
+</Shell>

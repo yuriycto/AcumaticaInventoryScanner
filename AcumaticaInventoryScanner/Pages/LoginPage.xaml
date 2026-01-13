@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcuPower.AcumaticaInventoryScanner.Pages.LoginPage"
+             Title="Login"
+             BackgroundColor="#1E272E"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*,Auto">
+            
+            <!-- Header with Logo Area -->
+            <Grid Grid.Row="0" HeightRequest="200" Padding="0">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00838F" Offset="0.0"/>
+                        <GradientStop Color="#006064" Offset="0.5"/>
+                        <GradientStop Color="#004D40" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                
+                <!-- Decorative circles -->
+                <BoxView CornerRadius="100" WidthRequest="200" HeightRequest="200" 
+                         BackgroundColor="#FFFFFF" Opacity="0.05"
+                         HorizontalOptions="End" VerticalOptions="Start" Margin="50,-50,0,0"/>
+                <BoxView CornerRadius="75" WidthRequest="150" HeightRequest="150" 
+                         BackgroundColor="#FFFFFF" Opacity="0.08"
+                         HorizontalOptions="Start" VerticalOptions="End" Margin="-30,0,0,-30"/>
+                
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="8">
+                    <Label Text="📦" FontSize="48"/>
+                    <Label Text="Inventory Scanner" FontSize="28" TextColor="White" FontAttributes="Bold"/>
+                    <Label Text="by AcuPower" FontSize="14" TextColor="#B2EBF2"/>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <!-- Login Form -->
+            <VerticalStackLayout Grid.Row="1" Padding="25,30" Spacing="20">
+                
+                <!-- Quick Setup Banner -->
+                <Frame BackgroundColor="#FF6F00" BorderColor="Transparent" CornerRadius="12" Padding="15" HasShadow="False">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="💡" FontSize="20" VerticalOptions="Center"/>
+                        <Label Text="Demo credentials pre-filled. Just tap Login!" 
+                               FontSize="13" TextColor="White" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                
+                <!-- Instance URL -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="ACUMATICA INSTANCE" FontSize="11" TextColor="#4DD0E1" FontAttributes="Bold"/>
+                    <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="12" Padding="0" HasShadow="False">
+                        <Entry x:Name="UrlEntry" Placeholder="https://your-instance.acumatica.com/Site" 
+                               Text="https://acupower-demo.co.uk/OpenAI25R1"
+                               PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                               HeightRequest="55" Margin="18,0" FontSize="15"
+                               Completed="OnUrlEntryCompleted" Unfocused="OnUrlEntryUnfocused"/>
+                    </Frame>
+                </VerticalStackLayout>
+                
+                <!-- Credentials Row -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <VerticalStackLayout Grid.Column="0" Spacing="8">
+                        <Label Text="USERNAME" FontSize="11" TextColor="#4DD0E1" FontAttributes="Bold"/>
+                        <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="12" Padding="0" HasShadow="False">
+                            <Entry x:Name="UsernameEntry" Placeholder="admin" Text="admin"
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="55" Margin="18,0" FontSize="15"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" Spacing="8">
+                        <Label Text="PASSWORD" FontSize="11" TextColor="#4DD0E1" FontAttributes="Bold"/>
+                        <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="12" Padding="0" HasShadow="False">
+                            <Entry x:Name="PasswordEntry" Placeholder="••••" Text="123" IsPassword="True"
+                                   PlaceholderColor="#757575" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="55" Margin="18,0" FontSize="15"
+                                   Unfocused="OnPasswordEntryUnfocused"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Grid>
+                
+                <!-- Tenant (Optional) -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="TENANT (OPTIONAL)" FontSize="11" TextColor="#757575"/>
+                    <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="12" Padding="0" HasShadow="False">
+                        <Entry x:Name="TenantEntry" Placeholder="Leave empty for default" 
+                               PlaceholderColor="#616161" TextColor="White" BackgroundColor="Transparent"
+                               HeightRequest="50" Margin="18,0" FontSize="14"/>
+                    </Frame>
+                </VerticalStackLayout>
+                
+                <!-- API Version -->
+                <VerticalStackLayout Spacing="8">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="API VERSION" FontSize="11" TextColor="#4DD0E1" FontAttributes="Bold"/>
+                        <Button x:Name="FetchEndpointsButton" Text="Load" Clicked="OnFetchEndpointsClicked"
+                                BackgroundColor="#37474F" TextColor="#4DD0E1" FontSize="10"
+                                HeightRequest="24" Padding="10,0" CornerRadius="12"/>
+                        <ActivityIndicator x:Name="EndpointLoadingSpinner" IsRunning="False" IsVisible="False" 
+                                           HeightRequest="20" WidthRequest="20" Color="#4DD0E1"/>
+                    </HorizontalStackLayout>
+                    <Frame BackgroundColor="#263238" BorderColor="Transparent" CornerRadius="12" Padding="0" HasShadow="False">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Picker x:Name="ApiVersionPicker" Title="Select Version" TitleColor="#757575"
+                                    TextColor="White" BackgroundColor="Transparent" HeightRequest="55"
+                                    Focused="OnApiVersionPickerFocused">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>24.200.001</x:String>
+                                        <x:String>23.200.001</x:String>
+                                        <x:String>22.200.001</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Entry x:Name="ApiVersionEntry" Grid.Column="1" Placeholder="or type" Text="24.200.001"
+                                   PlaceholderColor="#616161" TextColor="#4DD0E1" BackgroundColor="Transparent"
+                                   WidthRequest="100" HeightRequest="55" Margin="0,0,15,0" FontSize="13"/>
+                        </Grid>
+                    </Frame>
+                    <Label x:Name="EndpointStatusLabel" Text="" FontSize="11" TextColor="#757575"/>
+                </VerticalStackLayout>
+                
+                <!-- OAuth Credentials -->
+                <Frame BackgroundColor="#1A237E" BorderColor="Transparent" CornerRadius="12" Padding="15" HasShadow="False">
+                    <VerticalStackLayout Spacing="12">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="🔐" FontSize="16"/>
+                            <Label Text="OAuth Credentials (Required)" FontSize="13" TextColor="White" FontAttributes="Bold"/>
+                        </HorizontalStackLayout>
+                        
+                        <Frame BackgroundColor="#283593" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="ClientIdEntry" Placeholder="Client ID" 
+                                   Text="C6ECE655-8FE3-5C1F-C7C8-3309E724BA61@Company"
+                                   PlaceholderColor="#7986CB" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0" FontSize="13"/>
+                        </Frame>
+                        
+                        <Frame BackgroundColor="#283593" BorderColor="Transparent" CornerRadius="8" Padding="0" HasShadow="False">
+                            <Entry x:Name="ClientSecretEntry" Placeholder="Client Secret" IsPassword="True"
+                                   Text="WmORKBkz41_-0sJtsY0xjg"
+                                   PlaceholderColor="#7986CB" TextColor="White" BackgroundColor="Transparent"
+                                   HeightRequest="50" Margin="15,0" FontSize="13"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- Login Button -->
+                <Button x:Name="LoginButton" Text="🚀  Sign In" Clicked="OnLoginClicked"
+                        BackgroundColor="#00838F" TextColor="White" FontAttributes="Bold" FontSize="17"
+                        HeightRequest="60" CornerRadius="15" Margin="0,10,0,0">
+                    <Button.Shadow>
+                        <Shadow Brush="#00838F" Offset="0,4" Radius="10" Opacity="0.5"/>
+                    </Button.Shadow>
+                </Button>
+                
+                <ActivityIndicator x:Name="LoadingSpinner" IsRunning="False" HeightRequest="40" Color="#4DD0E1"/>
+                
+                <!-- Settings Link -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label Text="Need help?" TextColor="#757575" FontSize="13"/>
+                    <Label Text="Open Settings" TextColor="#4DD0E1" FontSize="13" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+                
+            </VerticalStackLayout>
+            
+            <!-- Footer -->
+            <VerticalStackLayout Grid.Row="2" Padding="20" Spacing="5">
+                <BoxView HeightRequest="1" Color="#37474F" Margin="0,0,0,15"/>
+                <Label Text="© 2024 AcuPower LTD" FontSize="11" TextColor="#616161" HorizontalOptions="Center"/>
+                <Label Text="acupowererp.com" FontSize="11" TextColor="#4DD0E1" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+        </Grid>
+    </ScrollView>
+</ContentPage>
