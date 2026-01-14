@@ -6,7 +6,7 @@ This project follows the Contributor Covenant (v2.1) with AcuPower-specific cont
 We pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 ## Our Standards
-- Use welcoming and inclusive language
+- Use welcoming language
 - Be respectful of differing viewpoints and experiences
 - Accept constructive criticism gracefully
 - Focus on what is best for the community and the project
