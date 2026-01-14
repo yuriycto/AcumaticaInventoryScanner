@@ -1,6 +1,6 @@
 # 📦 Acumatica Inventory Scanner
 
-A modern mobile barcode scanning application for **Acumatica ERP** inventory management. Built with .NET MAUI for cross-platform deployment on Android and iOS devices.
+Scan barcodes, fetch live Acumatica inventory, and see per-warehouse stock—manual setup today, guided onboarding coming soon.
 
 > **Developed by [AcuPower LTD](https://acupowererp.com)** - Acumatica Implementation Experts
 
