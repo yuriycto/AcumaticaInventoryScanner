@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by: AcuPower LTD
  * Website: acupowererp.com
  * Purpose: Model for Acumatica API endpoint discovery response

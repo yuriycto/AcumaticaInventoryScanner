@@ -1,0 +1,75 @@
+========================================
+UPTODOWN.DEV - App Descriptions
+========================================
+
+SHORT DESCRIPTION (Max 70 characters)
+--------------------------------------
+Scan barcodes to lookup Acumatica ERP inventory. Fast and secure.
+
+Character count: 64
+
+
+FULL BODY TEXT DESCRIPTION (Min 50 words)
+-----------------------------------------
+Acumatica Inventory Scanner is a mobile barcode scanning app designed for warehouse professionals and inventory managers using Acumatica ERP.
+
+Key Features:
+- Real-time barcode scanning using your phone's camera
+- Instant inventory lookup from your Acumatica system
+- View stock quantities across all warehouses
+- See detailed item information including prices, units, and descriptions
+- Secure OAuth 2.0 authentication (no passwords stored)
+- Modern dark theme optimized for warehouse environments
+- Offline caching of recently viewed items
+
+Supported barcode formats include Code 128, EAN-13, UPC-A, QR Code, and more.
+
+Perfect for:
+- Warehouse staff checking stock levels
+- Inventory counts and audits
+- Quick price lookups
+- Verifying shipments
+
+Requirements:
+- Acumatica ERP version 20.2 or later
+- API access configured in Acumatica
+- Internet connection
+
+This app is open source and free to use. No ads, no in-app purchases.
+
+Word count: 130
+
+
+========================================
+COPY-PASTE READY VERSIONS:
+========================================
+
+--- SHORT (paste this) ---
+Scan barcodes to lookup Acumatica ERP inventory. Fast and secure.
+
+--- FULL (paste this) ---
+Acumatica Inventory Scanner is a mobile barcode scanning app designed for warehouse professionals and inventory managers using Acumatica ERP.
+
+Key Features:
+- Real-time barcode scanning using your phone's camera
+- Instant inventory lookup from your Acumatica system
+- View stock quantities across all warehouses
+- See detailed item information including prices, units, and descriptions
+- Secure OAuth 2.0 authentication (no passwords stored)
+- Modern dark theme optimized for warehouse environments
+- Offline caching of recently viewed items
+
+Supported barcode formats include Code 128, EAN-13, UPC-A, QR Code, and more.
+
+Perfect for:
+- Warehouse staff checking stock levels
+- Inventory counts and audits
+- Quick price lookups
+- Verifying shipments
+
+Requirements:
+- Acumatica ERP version 20.2 or later
+- API access configured in Acumatica
+- Internet connection
+
+This app is open source and free to use. No ads, no in-app purchases.

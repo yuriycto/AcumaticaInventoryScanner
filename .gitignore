@@ -67,6 +67,7 @@ Desktop.ini
 *.p12
 appsettings.Development.json
 TestCredentials.txt
+KEYSTORE_CREDENTIALS.txt
 
 # Cursor/IDE
 .cursor/
