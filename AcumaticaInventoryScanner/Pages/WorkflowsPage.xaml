@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcuPower.AcumaticaInventoryScanner.Pages.WorkflowsPage"
+             Title="Workflows"
+             BackgroundColor="#1E272E">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Label Text="Warehouse Workflows"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#4DD0E1" />
+
+            <Label Text="Start a workflow to scan items, capture quantities, and export or push drafts to Acumatica."
+                   FontSize="13"
+                   TextColor="#90A4AE" />
+
+            <Button Text="📋 Physical Count Mode"
+                    Clicked="OnPhysicalCountClicked"
+                    BackgroundColor="#00838F"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="🧾 Inventory Adjustment Drafts"
+                    Clicked="OnInventoryAdjustmentClicked"
+                    BackgroundColor="#006064"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="📦 Receiving / Put-Away"
+                    Clicked="OnReceivingClicked"
+                    BackgroundColor="#00838F"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="🚚 Picking / Packing"
+                    Clicked="OnPickingClicked"
+                    BackgroundColor="#006064"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Button Text="🔁 Cycle Counting"
+                    Clicked="OnCycleCountClicked"
+                    BackgroundColor="#00838F"
+                    TextColor="White"
+                    CornerRadius="10" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -73,10 +73,12 @@
                Padding="10,5"/>
         
         <VerticalStackLayout VerticalOptions="End" Padding="20" Spacing="10">
-            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
                 <Button Grid.Column="0" Text="📝 Manual Entry" Clicked="OnManualEntryClicked" 
                         BackgroundColor="#37474F" TextColor="White" CornerRadius="12"/>
-                <Button Grid.Column="1" Text="⚙️ Settings" Clicked="OnSettingsClicked" 
+                <Button Grid.Column="1" Text="🧭 Workflows" Clicked="OnWorkflowsClicked" 
+                        BackgroundColor="#006064" TextColor="White" CornerRadius="12"/>
+                <Button Grid.Column="2" Text="⚙️ Settings" Clicked="OnSettingsClicked" 
                         BackgroundColor="#00838F" TextColor="White" CornerRadius="12"/>
             </Grid>
             <Button Text="🔐 Logout" Clicked="OnLogoutClicked" 

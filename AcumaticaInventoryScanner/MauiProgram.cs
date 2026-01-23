@@ -130,6 +130,9 @@ public static class MauiProgram
 		builder.Services.AddSingleton<AuthService>();
 		builder.Services.AddSingleton<DatabaseService>();
 		builder.Services.AddSingleton<PermissionsService>();
+		builder.Services.AddSingleton<ScanService>();
+		builder.Services.AddSingleton<WorkflowExportService>();
+		builder.Services.AddSingleton<AcumaticaWorkflowService>();
 		
 		// Add Refit HTTP client factory
 		builder.Services.AddRefitClient<IAcumaticaApi>()
@@ -140,6 +143,12 @@ public static class MauiProgram
 		builder.Services.AddTransient<SettingsPage>();
 		builder.Services.AddTransient<ItemDetailPage>();
 		builder.Services.AddTransient<ArPage>();
+		builder.Services.AddTransient<WorkflowsPage>();
+		builder.Services.AddTransient<PhysicalCountPage>();
+		builder.Services.AddTransient<CycleCountPage>();
+		builder.Services.AddTransient<InventoryAdjustmentPage>();
+		builder.Services.AddTransient<ReceivingPutAwayPage>();
+		builder.Services.AddTransient<PickingPackingPage>();
 
 		try
 		{

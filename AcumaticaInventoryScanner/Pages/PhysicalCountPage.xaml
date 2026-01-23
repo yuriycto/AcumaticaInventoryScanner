@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcuPower.AcumaticaInventoryScanner.Pages.PhysicalCountPage"
+             Title="Physical Count"
+             BackgroundColor="#1E272E">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Physical Count Session"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#4DD0E1" />
+
+            <Entry x:Name="SessionNameEntry"
+                   Placeholder="Session name (e.g., Annual Count)"
+                   PlaceholderColor="#546E7A"
+                   TextColor="White"
+                   BackgroundColor="#263238" />
+
+            <Entry x:Name="WarehouseEntry"
+                   Placeholder="Warehouse (e.g., MAIN)"
+                   PlaceholderColor="#546E7A"
+                   TextColor="White"
+                   BackgroundColor="#263238" />
+
+            <Entry x:Name="BinEntry"
+                   Placeholder="Bin / Location (optional)"
+                   PlaceholderColor="#546E7A"
+                   TextColor="White"
+                   BackgroundColor="#263238" />
+
+            <Entry x:Name="NotesEntry"
+                   Placeholder="Notes (optional)"
+                   PlaceholderColor="#546E7A"
+                   TextColor="White"
+                   BackgroundColor="#263238" />
+
+            <Button Text="Start New Session"
+                    Clicked="OnStartSessionClicked"
+                    BackgroundColor="#00838F"
+                    TextColor="White"
+                    CornerRadius="10" />
+
+            <Picker x:Name="SessionPicker"
+                    Title="Load existing session"
+                    TitleColor="#90A4AE"
+                    BackgroundColor="#263238"
+                    TextColor="White"
+                    SelectedIndexChanged="OnSessionSelected" />
+
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+                <Button Grid.Column="0"
+                        Text="📷 Scan Item"
+                        Clicked="OnScanItemClicked"
+                        BackgroundColor="#006064"
+                        TextColor="White"
+                        CornerRadius="10" />
+                <Button Grid.Column="1"
+                        Text="📝 Manual Add"
+                        Clicked="OnManualAddClicked"
+                        BackgroundColor="#37474F"
+                        TextColor="White"
+                        CornerRadius="10" />
+            </Grid>
+
+            <Entry x:Name="EndpointEntry"
+                   Placeholder="Acumatica endpoint (default: PhysicalCount)"
+                   PlaceholderColor="#546E7A"
+                   TextColor="White"
+                   BackgroundColor="#263238" />
+
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+                <Button Grid.Column="0"
+                        Text="Export CSV"
+                        Clicked="OnExportClicked"
+                        BackgroundColor="#4DD0E1"
+                        TextColor="#1E272E"
+                        CornerRadius="10" />
+                <Button Grid.Column="1"
+                        Text="Push to Acumatica"
+                        Clicked="OnPushClicked"
+                        BackgroundColor="#00BCD4"
+                        TextColor="#1E272E"
+                        CornerRadius="10" />
+            </Grid>
+
+            <Label Text="Scanned Items"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="0,10,0,0" />
+
+            <CollectionView x:Name="EntriesView"
+                            HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#37474F"
+                                StrokeThickness="1"
+                                Padding="10"
+                                Margin="0,4"
+                                BackgroundColor="#263238">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="{Binding InventoryId}"
+                                       TextColor="White"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding QtyCounted, StringFormat='Qty: {0}'}"
+                                       TextColor="#B2EBF2" />
+                                <Label Text="{Binding BinLocation}"
+                                       TextColor="#78909C"
+                                       FontSize="11" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

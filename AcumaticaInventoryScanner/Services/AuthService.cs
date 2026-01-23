@@ -180,6 +180,35 @@ public class AuthService
         return _api;
     }
 
+    public async Task<HttpClient?> GetHttpClientAsync()
+    {
+        var url = await _settingsService.GetUrlAsync();
+        if (string.IsNullOrEmpty(url)) return null;
+
+        var token = await _settingsService.GetTokenAsync();
+        HttpClient httpClient;
+
+        if (token == "cookie-auth" && _cookieAuthHttpClient != null)
+        {
+            httpClient = _cookieAuthHttpClient;
+        }
+        else
+        {
+            httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(url),
+                Timeout = TimeSpan.FromSeconds(30)
+            };
+
+            if (!string.IsNullOrEmpty(token) && token != "cookie-auth")
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+        }
+
+        return httpClient;
+    }
+
     public void ClearApiCache()
     {
         // Clear cached API client to force re-authentication

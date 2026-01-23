@@ -649,6 +649,27 @@ public partial class MainPage : ContentPage
         }
     }
 
+    private async void OnWorkflowsClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            var workflowsPage = _serviceProvider.GetService<Pages.WorkflowsPage>();
+            if (workflowsPage != null)
+            {
+                await Navigation.PushAsync(workflowsPage);
+            }
+            else
+            {
+                await DisplayAlert("Error", "Could not load Workflows page.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error navigating to Workflows: {ex.Message}");
+            await DisplayAlert("Error", $"Navigation failed: {ex.Message}", "OK");
+        }
+    }
+
     private async Task QueryInventoryItemAsync(string itemIdentifier)
     {
         if (string.IsNullOrWhiteSpace(itemIdentifier)) return;
